@@ -1,6 +1,6 @@
 # fashion-ann-pipeline
 
-End-to-end Fashion-MNIST classificaton pipeline using a TensorFlow ANN,
+End-to-end Fashion-MNIST classification pipeline using a TensorFlow ANN,
 versioned with Git and DVC (Google Drive remote).
 
 ## Stack
