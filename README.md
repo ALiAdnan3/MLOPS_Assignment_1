@@ -12,3 +12,8 @@ versioned with Git and DVC (Google Drive remote).
 ## Goal
 
 Reach at least 85% test accuracy, reproducible with a single `dvc repro`.
+
+## Usage
+
+    dvc pull    # fetch data and model from Google Drive
+    dvc repro   # run prepare -> preprocess -> train -> evaluate
