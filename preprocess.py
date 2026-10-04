@@ -32,6 +32,7 @@ def main():
     np.savez_compressed(os.path.join(PROCESSED_DIR, "val.npz"), x=x_val, y=y_val)
     np.savez_compressed(os.path.join(PROCESSED_DIR, "test.npz"), x=x_test, y=y_test)
     print(f"Saved processed data -> {PROCESSED_DIR}/")
+    print(f"Shapes: train={x_train.shape} val={x_val.shape} test={x_test.shape}")
 
 
 if __name__ == "__main__":
