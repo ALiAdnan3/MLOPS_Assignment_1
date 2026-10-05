@@ -10,8 +10,11 @@ PROCESSED_DIR = "data/processed"
 
 
 def normalize(x):
-    # Global scaling to [0, 1], then zero out faint background noise (< 0.05)
-    x = x.astype("float32") / 255.0
+    # Merged: per-image min-max scaling (teammate-sim) + background noise removal (main)
+    x = x.astype("float32")
+    x_min = x.min(axis=(1, 2), keepdims=True)
+    x_max = x.max(axis=(1, 2), keepdims=True)
+    x = (x - x_min) / np.maximum(x_max - x_min, 1e-7)
     x[x < 0.05] = 0.0
     return x
 
