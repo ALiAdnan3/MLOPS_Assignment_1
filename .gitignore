@@ -11,3 +11,4 @@ __pycache__/
 
 # Large artifacts are handled by DVC, not Git
 *.h5
+/models
