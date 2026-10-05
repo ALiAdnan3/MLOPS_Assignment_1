@@ -10,8 +10,11 @@ PROCESSED_DIR = "data/processed"
 
 
 def normalize(x):
-    # Scale raw 0-255 pixel values to [0, 1]
-    return x.astype("float32") / 255.0
+    # Per-image min-max scaling: stretch every image to the full [0, 1] range
+    x = x.astype("float32")
+    x_min = x.min(axis=(1, 2), keepdims=True)
+    x_max = x.max(axis=(1, 2), keepdims=True)
+    return (x - x_min) / np.maximum(x_max - x_min, 1e-7)
 
 
 def main():
