@@ -10,8 +10,10 @@ PROCESSED_DIR = "data/processed"
 
 
 def normalize(x):
-    # Scale raw 0-255 pixel values to [0, 1]
-    return x.astype("float32") / 255.0
+    # Global scaling to [0, 1], then zero out faint background noise (< 0.05)
+    x = x.astype("float32") / 255.0
+    x[x < 0.05] = 0.0
+    return x
 
 
 def main():
